@@ -23,9 +23,8 @@ int sumnumbers(int arr[10][10],int row,int col) {
     int k = 0;
     printf("Moi bạn nhap so hang muon tinh tong: ");
     scanf("%d",&k);
-    for (int i = 0; i < row; i++) {
-        if (row == k){
-           sum += arr[i][0];
+    for (int j = 0; j < col; j++) {
+        sum += arr[k][j];
     }
     return sum;
 }
@@ -39,7 +38,7 @@ int main() {
     scanf("%d",&col);
     numbers(arr,row,col);
     print(arr,row,col);
-    sum = sumnumbers(arr,row,col);
+    int sum = sumnumbers(arr,row,col);
     printf("Tong can tim la: %d",sum);
     return 0;
 }
