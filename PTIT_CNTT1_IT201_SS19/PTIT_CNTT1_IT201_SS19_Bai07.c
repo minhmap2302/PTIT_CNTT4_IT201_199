@@ -49,7 +49,9 @@ Node* createNodeWithValue(int value) {
 }
 
 void addNode(Node* root, int value) {
-    if (root == NULL) return;
+    if (root == NULL) {
+        return;
+    }
     Queue q;
     initQueue(&q);
     enqueue(&q, root);

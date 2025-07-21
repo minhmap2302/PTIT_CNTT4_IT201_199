@@ -25,8 +25,12 @@ Node* createNode() {
 }
 
 bool searchDFS(Node* root, int target) {
-    if (root == NULL) return false;
-    if (root->data == target) return true;
+    if (root == NULL) {
+        return false;
+    }
+    if (root->data == target) {
+        return true;
+    }
     return searchDFS(root->left, target) || searchDFS(root->right, target);
 }
 

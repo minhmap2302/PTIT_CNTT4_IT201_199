@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#define MAX_QUEUE 100
 
 typedef struct Node {
     int data;
@@ -22,8 +23,6 @@ Node* createNode() {
     newNode->right = NULL;
     return newNode;
 }
-
-#define MAX_QUEUE 100
 
 typedef struct {
     Node* data[MAX_QUEUE];
@@ -54,15 +53,23 @@ Node* dequeue(Queue* q) {
 }
 
 bool searchBFS(Node* root, int target) {
-    if (root == NULL) return false;
+    if (root == NULL) {
+        return false;
+    }
     Queue q;
     initQueue(&q);
     enqueue(&q, root);
     while (!isEmpty(&q)) {
         Node* current = dequeue(&q);
-        if (current->data == target) return true;
-        if (current->left != NULL) enqueue(&q, current->left);
-        if (current->right != NULL) enqueue(&q, current->right);
+        if (current->data == target) {
+            return true;
+        }
+        if (current->left != NULL) {
+            enqueue(&q, current->left);
+        }
+        if (current->right != NULL) {
+            enqueue(&q, current->right);
+        }
     }
     return false;
 }

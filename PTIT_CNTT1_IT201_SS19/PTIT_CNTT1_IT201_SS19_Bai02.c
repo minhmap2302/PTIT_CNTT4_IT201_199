@@ -23,8 +23,9 @@ Node* createNode() {
 }
 
 void preorderTraversal(Node* root) {
-    if (root == NULL) return;
-
+    if (root == NULL) {
+        return;
+    }
     printf("%d ", root->data);
     preorderTraversal(root->left);
     preorderTraversal(root->right);
